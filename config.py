@@ -1,6 +1,7 @@
 MAX_RETRIES    = 3
 PASS_THRESHOLD = 7
 MODEL          = "gpt-3.5-turbo"
+NUM_DRAFTS     = 3   # number of style variants generated per outline in the tournament
 
 GENRES = ["adventure", "bedtime", "silly", "mystery", "friendship"]
 

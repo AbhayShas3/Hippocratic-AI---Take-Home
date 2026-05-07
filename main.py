@@ -5,10 +5,18 @@ from agents import check_input, generate_story
 """
 Before submitting the assignment, describe here in a few sentences what you would have built next if you spent 2 more hours on this project:
 
+I would add the ability for the user to input their age such that the vocabulary and themes of the stories 
+generated would match the age of the user.
+
 I would have added streaming output so the story prints word-by-word for a more engaging experience,
 and a "chapter continuation" feature letting the user say "keep going" to extend the story naturally.
-I'd also have refined the judge rubric with a Flesch-Kincaid vocabulary check so feedback is more
-precise and rewrites converge faster.
+
+I would also add a database that stores user information to give more personalized recommendations and
+also have the ability to have recurring characters in stories.
+
+Finally, I would spend more time going over all the prompts given to the agents as I've noticed that a lot of
+times, a good prompt improves the performace of the pipeline significantly 
+
 """
 
 def call_model(prompt: str, max_tokens=3000, temperature=0.1) -> str:
@@ -48,7 +56,7 @@ def main():
 
         safe, reason = check_input(change)
         if not safe:
-            print(f"\n {reason}\n📖 Keeping the current story.")
+            print(f"\n {reason}\n Keeping the current story.")
             continue
 
         new_story, all_failed = generate_story(f"{user_input}\n\nRevision: {change}")
